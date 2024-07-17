@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  event-service:
+    build:
+      context: ./event
+      dockerfile: Dockerfile
+    image: dasmod/eventservice
+    ports:
+      - "8060:8060"
+
+  discovery-service:
+    build:
+      context: ./discovery
+      dockerfile: Dockerfile
+    image: dasmod/discovery
+    ports:
+      - "8761:8761"
