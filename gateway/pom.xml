@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.cloudingenieur</groupId>
 	<artifactId>gateway</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.5-SNAPSHOT</version>
 	<name>gateway</name>
 	<description>Gateway Server for appointments microservices</description>
 	<url/>
@@ -33,37 +33,31 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
 		</dependency>
-		<!--<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway-mvc</artifactId>
-		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-resource-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-jose</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-tracing-bridge-brave</artifactId>
+			<groupId>com.github.dasniko</groupId>
+			<artifactId>testcontainers-keycloak</artifactId>
+			<version>3.3.1</version>
+			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>io.zipkin.reporter2</groupId>
-			<artifactId>zipkin-reporter-brave</artifactId>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-gateway -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
-		</dependency>
-
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

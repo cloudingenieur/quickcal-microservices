@@ -2,7 +2,16 @@ server:
   port: 8060
 
 spring:
-  config:
-    import: optional:configserver:http://localhost:8888
   application:
     name: event-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/realms/demo/protocol/openid-connect/certs
+          # issuer-uri: http://localhost:8080/realms/demo
+
+logging.level:
+  org.springframework.cloud.gateway: DEBUG
+  org.springframework.security: DEBUG
+  org.springframework.web.reactive.function.client: TRACE
