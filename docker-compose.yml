@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     image: dasmod/gateewayservice
     ports:
-      - "8080:8080"
+      - "8888:8888"
 
   event-service:
     build:
@@ -23,3 +23,11 @@ services:
     image: dasmod/orderservice
     ports:
       - "8070:8070"
+
+  notification-service:
+    build:
+      context: ./notification
+      dockerfile: Dockerfile
+    image: dasmod/notificationservice
+    ports:
+      - "8030:8030"

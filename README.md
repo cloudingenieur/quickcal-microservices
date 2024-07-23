@@ -26,20 +26,33 @@
 
 ## How to Build and Run locally?
 - Clone Microservices-appointments
+
+`GateWay Service`
 - $ cd gateway project
 - Run `$ mvn clean & mvn install & mvn spring-boot: run` to start the gateway service.
-- $ cd event project
+- visit http://localhost:8888 a redirect to keycloak login page, enter `spring` as username and `Spring_123` as
+  password.
+
+`Bookings Service`
+- $ cd booking project
+- Run `$ mvn clean & mvn install & mvn spring-boot: run` to start the booking service
+- visit http://localhost:888/bookings/v1 a redirect to keycloak login page, enter `spring` as username and `Spring_123` as password.
+
+`Orders Service`
+- $ cd order project
+- Run `$ mvn clean & mvn install & mvn spring-boot: run` to start the order service
+- visit http://localhost:8888/orders/v1 a redirect to keycloak login page, enter `spring` as username and `Spring_123` as password.
+
+`Notifications Service`
+- $ cd notification project
 - Run `$ mvn clean & mvn install & mvn spring-boot: run` to start the event service
-- visit http://localhost/callme/ping a redirect to keycloak login page, enter `spring` as username and `Spring_123` as password.
+- visit http://localhost:8888/notifications/v1 a redirect to keycloak login page, enter `spring` as username and `Spring_123` as password.
 
 
 ## How to Build and Run with Docker?
 - Clone Microservices-appointments
-- $ cd gateway project
-- Run `$ docker-compose up` to start the gateway service.
-- $ cd event project
-- Run `$ docker-compose up` to start the event service
-- visit http://localhost/callme/ping a redirect to keycloak login page, enter `spring` as username and `Spring_123` as password.
+- Run `$ docker-compose up` it will download fom docker hub and start all the services.
+- visit http://localhost:8888 a redirect to keycloak login page, enter `spring` as username and `Spring_123` as password.
 
 
 ## Resources
