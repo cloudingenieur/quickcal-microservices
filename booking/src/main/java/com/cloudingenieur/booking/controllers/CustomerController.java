@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/callme")
-public class CallmeController {
+@RequestMapping("v1")
+public class CustomerController {
 
     @PreAuthorize("hasAuthority('SCOPE_TEST')")
-    @GetMapping("/ping")
-    public String ping() {
+    @GetMapping("/customers")
+    public String getAllCustomers() {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
         return "Scopes: " + authentication.getAuthorities();
