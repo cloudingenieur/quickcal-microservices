@@ -1,4 +1,4 @@
-package com.cloudingenieur.booking.controllers;
+package com.cloudingenieur.order.controllers;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/bookings/v1")
-public class CustomerController {
+@RequestMapping("/orders/v1")
+public class OrderController {
 
     @PreAuthorize("hasAuthority('SCOPE_TEST')")
-    @GetMapping("/customers")
-    public String getAllCustomers() {
+    @GetMapping("/")
+    public String getOrders() {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
-        return "Scopes: " + authentication.getAuthorities();
+        return "Hello Orders + Scopes: " + authentication.getAuthorities();
     }
 }

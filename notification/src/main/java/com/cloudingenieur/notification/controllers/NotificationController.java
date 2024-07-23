@@ -1,4 +1,4 @@
-package com.cloudingenieur.booking.controllers;
+package com.cloudingenieur.notification.controllers;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1")
-public class OrderController {
+@RequestMapping("/notifications/v1")
+public class NotificationController {
 
     @PreAuthorize("hasAuthority('SCOPE_TEST')")
-    @GetMapping("/orders")
-    public String getEvents() {
+    @GetMapping("")
+    public String getAllNotifications() {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
-        return "Hello Orders + Scopes: " + authentication.getAuthorities();
+        return "Scopes Notifications: " + authentication.getAuthorities();
     }
 }

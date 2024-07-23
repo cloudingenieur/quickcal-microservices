@@ -9,14 +9,20 @@ spring:
       default-filters:
         - TokenRelay=
       routes:
-        - id: event-service
+        - id: booking-service
           uri: http://localhost:8060
           predicates:
-            - Path=/callme/**
+            - Path=/bookings/v1/**
+
         - id: order-service
           uri: http://localhost:8070
           predicates:
-            - Path=/v1/**
+            - Path=/orders/v1/**
+
+        - id: notification-service
+          uri: http://localhost:8030
+          predicates:
+            - Path=/notifications/v1/**
 
   security:
     oauth2:

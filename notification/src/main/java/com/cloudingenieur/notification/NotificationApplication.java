@@ -1,13 +1,13 @@
-package com.cloudingenieur.booking;
+package com.cloudingenieur.notification;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OrderApplication {
+public class NotificationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OrderApplication.class, args);
+		SpringApplication.run(NotificationApplication.class, args);
 	}
 
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/bookings/v1")
 public class InvoiceController {
     @PreAuthorize("hasAuthority('SCOPE_TEST')")
 
