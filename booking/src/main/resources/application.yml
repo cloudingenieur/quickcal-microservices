@@ -10,7 +10,20 @@ spring:
         jwt:
           jwk-set-uri: http://localhost:8080/realms/demo/protocol/openid-connect/certs
           # issuer-uri: http://localhost:8080/realms/demo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://host:3306/appointmentDB
+    username: username
+    password: password
 
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
 logging.level:
   org.springframework.cloud.gateway: DEBUG
   org.springframework.security: DEBUG
