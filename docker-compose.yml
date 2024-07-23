@@ -1,17 +1,25 @@
 version: '3.8'
 services:
+  gateway-service:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    image: dasmod/gateewayservice
+    ports:
+      - "8080:8080"
+
   event-service:
     build:
-      context: ./event
+      context: ./booking
       dockerfile: Dockerfile
-    image: dasmod/eventservice
+    image: dasmod/bookingservice
     ports:
       - "8060:8060"
 
-  discovery-service:
+  order-service:
     build:
-      context: ./discovery
+      context: ./order
       dockerfile: Dockerfile
-    image: dasmod/discovery
+    image: dasmod/orderservice
     ports:
-      - "8761:8761"
+      - "8070:8070"
