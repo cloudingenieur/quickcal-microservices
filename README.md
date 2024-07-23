@@ -55,6 +55,13 @@
 - visit http://localhost:8888 a redirect to keycloak login page, enter `spring` as username and `Spring_123` as password.
 
 
+## How to Run Tests?
+
+`Bookings Service Tests`
+- $ cd booking project
+- Run `$ mvn clean & mvn test` to run the booking service tests.
+
+
 ## Resources
 - https://www.keycloak.org/
 - https://spring.io/projects/spring-cloud-gateway

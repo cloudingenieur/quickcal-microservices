@@ -11,7 +11,7 @@
 	<groupId>com.cloudingenieur</groupId>
 	<artifactId>booking</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
-	<name>event</name>
+	<name>booking</name>
 	<description>Events Server for appointments microservices</description>
 	<url/>
 	<licenses>
