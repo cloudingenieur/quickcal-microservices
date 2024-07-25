@@ -19,4 +19,8 @@ public class CustomerServices {
 
         return customerRepository.findAll(pageable);
     }
+
+    public void saveCustomer(Customer customer) {
+        customerRepository.save(customer);
+    }
 }

@@ -26,11 +26,8 @@ public class Customer {
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "keycloakusername")
-    private String keycloakusername;
-
-    @Column(name = "keycloakemail")
-    private String keycloakemail;
+    @Column(name = "address")
+    private String address;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "createdat")

@@ -14,6 +14,8 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import jakarta.persistence.Tuple;
+
+import java.io.IOException;
 import java.util.List;
 
 
@@ -41,16 +43,60 @@ public class CustomerController {
     }
 
 
-
     @PreAuthorize("hasAuthority('SCOPE_TEST')")
     @GetMapping("/customers")
     public ResponseEntity<?> getAllCustomers(@RequestParam(defaultValue = "0") int page,
                                              @RequestParam(defaultValue = "10") int size) {
-
         var x = customerServices.getCustomers(0, 1);
         System.out.println(x);
 
         return ResponseEntity.status(HttpStatus.OK).body(customerServices.getCustomers(page, size));
 
+    }
+
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(value = "/customer/new", produces = "application/json", consumes = "application/json")
+    @PreAuthorize("hasAuthority('SCOPE_TEST')")
+    public ResponseEntity<?> createCustomer(@RequestBody Customer customer) throws IOException {
+        var id = customerRepository.findById(customer.getId());
+
+        // TODO: fix dublicated user
+        /*if(id.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer is already found");
+        } */
+        customerServices.saveCustomer(customer);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Customer created");
+    }
+
+
+    @DeleteMapping(value = "/customer/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_TEST')")
+    public void deleteCustomer(@PathVariable final Long id) {
+        //Customer customerById = customerRepository.findById(id)
+        customerRepository.deleteById(id);
+    }
+
+    @PutMapping(value = "/customer/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_TEST')")
+    public ResponseEntity<?> updateCustomer(@PathVariable final Long id, @RequestBody Customer customers) {
+        return customerRepository.findById(id)
+                .map(client -> {
+                    client.setName(customers.getName());
+                    client.setAddress(customers.getAddress());
+                    client.setEmail(customers.getEmail());
+                    client.setPhone(customers.getPhone());
+                    client.setCreated_date(customers.getCreated_date());
+
+                     customerRepository.save(client);
+                    return ResponseEntity.status(HttpStatus.CREATED).body("Customer Updated" + client);
+                })
+                .orElseGet(() -> {
+                    customers.setId(id);
+                    customerRepository.save(customers);
+
+                    return  ResponseEntity.status(HttpStatus.CREATED).body("New Customer Created!");
+
+                });
     }
 }
