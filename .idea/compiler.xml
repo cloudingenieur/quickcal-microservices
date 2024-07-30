@@ -11,7 +11,6 @@
         <module name="booking" />
         <module name="frontenddriver" />
         <module name="gateway" />
-        <module name="frontend" />
         <module name="order" />
       </profile>
     </annotationProcessing>
@@ -19,6 +18,7 @@
       <module name="backend" target="17" />
       <module name="configserver" target="17" />
       <module name="discovery" target="17" />
+      <module name="frontend" target="1.8" />
       <module name="frontend-driver" target="17" />
       <module name="frontend.driver" target="17" />
     </bytecodeTargetLevel>

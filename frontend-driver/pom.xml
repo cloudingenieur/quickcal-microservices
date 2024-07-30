@@ -68,11 +68,12 @@
 								<configuration>
 									<!--<outputDirectory>target/classes/static</outputDirectory>-->
 									<!--<outputDirectory>src/main/resources/static</outputDirectory>-->
-									<outputDirectory>src/main/resources/static</outputDirectory>
+									<outputDirectory>target/classes/static</outputDirectory>
 									<overwrite>true</overwrite>
 									<resources>
 										<resource>
-											<directory>../frontend/dist/spa</directory>
+											<!--<directory>../frontend/dist/spa</directory>-->
+											<directory>/Users/mohammedjamal/cloudingenieur-workspace/scheduling_frontend/dist/spa</directory>
 										</resource>
 									</resources>
 								</configuration>
