@@ -9,20 +9,29 @@
         <outputRelativeToContentRoot value="true" />
         <module name="notification" />
         <module name="booking" />
+        <module name="frontenddriver" />
         <module name="gateway" />
+        <module name="frontend" />
         <module name="order" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="backend" target="17" />
       <module name="configserver" target="17" />
       <module name="discovery" target="17" />
+      <module name="frontend-driver" target="17" />
+      <module name="frontend.driver" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="backend" options="-parameters" />
       <module name="booking" options="-parameters" />
       <module name="configserver" options="-parameters" />
       <module name="discovery" options="-parameters" />
+      <module name="frontend-driver" options="-parameters" />
+      <module name="frontend.driver" options="-parameters" />
+      <module name="frontenddriver" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="notification" options="-parameters" />
       <module name="order" options="-parameters" />

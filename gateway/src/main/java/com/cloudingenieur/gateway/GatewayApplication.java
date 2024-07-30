@@ -45,7 +45,7 @@ public class GatewayApplication {
 		return authentication.getName();
 
 	}
-	@GetMapping("/")
+	@GetMapping("/session")
 	public Mono<String> index(WebSession session) {
 		return Mono.just(session.getId());
 	}

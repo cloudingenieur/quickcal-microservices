@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @PreAuthorize("hasAuthority('SCOPE_TEST')")
-    @GetMapping("/")
+    @GetMapping("")
     public String getOrders() {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
