@@ -13,7 +13,6 @@
         <option value="$PROJECT_DIR$/notification/pom.xml" />
         <option value="$PROJECT_DIR$/backend/pom.xml" />
         <option value="$PROJECT_DIR$/frontend-driver/pom.xml" />
-        <option value="$PROJECT_DIR$/frontend/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -25,7 +25,7 @@ spring:
             - Path=/notifications/v1/**
 
         - id: frontend-service
-          uri: http://localhost:5173
+          uri: http://localhost:9000
           predicates:
             - Path=/**
 
