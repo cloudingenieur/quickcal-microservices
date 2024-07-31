@@ -1,6 +1,5 @@
 [![Top Language](https://img.shields.io/github/languages/top/cloudingenieur/microservices-appointments?style=flat-square)](https://github.com/cloudingenieur/microservices-appointments)
-
-![](https://img.shields.io/badge/Keycloak-25.0-blue) 
+![](https://img.shields.io/badge/Keycloak-25.0-green) 
 
 # About
 Booking appointment applications are used across various industries and service areas to streamline scheduling 
