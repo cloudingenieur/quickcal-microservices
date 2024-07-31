@@ -12,5 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
         // Map all routes to the index.html file
         registry.addViewController("/dashboard")
                 .setViewName("forward:/index.html");
+        registry.addViewController("/logincode")
+                .setViewName("forward:/index.html");
     }
 }
