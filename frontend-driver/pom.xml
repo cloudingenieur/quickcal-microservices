@@ -46,9 +46,9 @@
 	</dependencies>
 	<profiles>
 		<profile>
-			<id>driver: copy frontend content</id>
+			<id>driver:copyFrontendContent</id>
 			<properties>
-				<spring.profiles.active>driver: copy frontend content</spring.profiles.active>
+				<spring.profiles.active>driver:copyFrontendContent</spring.profiles.active>
 			</properties>
 			<build>
 				<plugins>
