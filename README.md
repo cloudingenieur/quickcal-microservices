@@ -1,9 +1,17 @@
 [![Top Language](https://img.shields.io/github/languages/top/cloudingenieur/microservices-appointments?style=flat-square)](https://github.com/cloudingenieur/microservices-appointments)
-![](https://img.shields.io/badge/Keycloak-25.0-green) 
+![](https://img.shields.io/badge/Keycloak-25.0-yellow) ![](https://img.shields.io/badge/maven-3.9.2-brightgreen)
+![](https://img.shields.io/badge/docker-20.10.24-red)
+![](https://img.shields.io/badge/Spring%20Boot-3.3.1-brown)
 
-# About
+
+
+# QuickCal Appointment Application
+
+![booking_icon](docs/booking_icon.png)
+
 Booking appointment applications are used across various industries and service areas to streamline scheduling 
 and enhance customer experience. Some key areas include: 
+
 
 **Healthcare** such as Doctor's appointments, Dental visits, Therapy sessions, Vaccination appointments.
 
@@ -80,6 +88,63 @@ and oil changes, etc.
 - visit http://localhost:8888/notifications/v1 a redirect to keycloak login page, enter `spring` as username and `Spring_123` as password.
 
 
+`Frontend Driver Service`
+- $ cd frontend-driver
+- copy your Vue3 `dist/spa/*` folder to `frontend-driver/src/main/resources/static`, you need to setup Vue3 path in `pom.xml` profile
+```
+<profiles>
+      <profile>
+          <id>driver:copyFrontendContent</id>
+          <properties>
+              <spring.profiles.active>driver:copyFrontendContent</spring.profiles.active>
+          </properties>
+          <build>
+              <plugins>
+                  <plugin>
+                      <groupId>org.springframework.boot</groupId>
+                      <artifactId>spring-boot-maven-plugin</artifactId>
+                  </plugin>
+                  <plugin>
+                      <artifactId>maven-resources-plugin</artifactId>
+                      <executions>
+                          <execution>
+                              <id>copy frontend content</id>
+                              <phase>generate-resources</phase>
+                              <goals>
+                                  <goal>copy-resources</goal>
+                              </goals>
+                              <configuration>
+                                  <!--<outputDirectory>target/classes/static</outputDirectory>-->
+                                  <!--<outputDirectory>src/main/resources/static</outputDirectory>-->
+                                  <outputDirectory>src/main/resources/static</outputDirectory>
+                                  <overwrite>true</overwrite>
+                                  <resources>
+                                      <resource>
+                                          <!--<directory>../frontend/dist/spa</directory>-->
+                                          <directory>/Users/mohammedjamal/cloudingenieur-workspace/scheduling_frontend/dist/spa</directory>
+                                      </resource>
+                                  </resources>
+                              </configuration>
+                          </execution>
+                      </executions>
+                  </plugin>
+              </plugins>
+          </build>
+      </profile>
+	</profiles>
+
+
+```
+- change resource directory to your Vue3 dist/spa path
+```
+<resource>
+    <directory>/your-vue3-path/dist/spa</directory>
+</resource>
+```
+- Run `$ mvn clean install -Pdriver:copyFrontendContent -X` to clean, install and copy Vue3 static files to spring project.
+- Run `$ mvn spring-boot:run` to start the frontend driver service on port 9000.
+
+
 ## How to Build and Run with Docker?
 - Clone Microservices-appointments
 - Run `$ docker-compose up` it will download fom docker hub and start all the services.
@@ -92,30 +157,9 @@ and oil changes, etc.
 - $ cd booking project
 - Run `$ mvn clean & mvn test` to run the booking service tests.
 
+
+
 ## Resources
 - https://www.keycloak.org/
 - https://spring.io/projects/spring-cloud-gateway
-
-
-# MIT License
-
-Copyright (c) [2024] [Cloudingenieur]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
+- https://vuejs.org/

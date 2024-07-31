@@ -31,3 +31,11 @@ services:
     image: dasmod/notificationservice
     ports:
       - "8030:8030"
+
+  frontend-service:
+    build:
+      context: ./frontend-driver
+      dockerfile: Dockerfile
+    image: dasmod/frontendservice
+    ports:
+      - "9000:9000"
