@@ -1,3 +1,7 @@
+[![Top Language](https://img.shields.io/github/languages/top/cloudingenieur/microservices-appointments?style=flat-square)](https://github.com/cloudingenieur/microservices-appointments)
+
+![](https://img.shields.io/badge/Keycloak-25.0-blue) 
+
 # About
 Booking appointment applications are used across various industries and service areas to streamline scheduling 
 and enhance customer experience. Some key areas include: 
@@ -24,8 +28,6 @@ and oil changes, etc.
 
 **Pet Services** such as pet sitting, pet adoption, pet training, etc.
 
-# Top Languages
-[![Top Language](https://img.shields.io/github/languages/top/cloudingenieur/microservices-appointments?style=flat-square)](https://github.com/cloudingenieur/microservices-appointments)
 
 
 # Solution Architecture 🔍
